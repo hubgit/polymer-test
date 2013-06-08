@@ -1,0 +1,15 @@
+<element name="x-description" attributes="article">
+	<template>
+		<label id="name-label" for="name-input"></label>
+		<input id="name-input" value="{{ article.name }}" placeholder="Article name here...">
+
+		<p>This document is called <i>{{ article.name }}</i>.</p>
+	</template>
+	<script>
+	Polymer.register(this, {
+		ready: function() {
+			this.$["name-label"].innerText = "Enter the article title:";
+		},
+	});
+	</script>
+</element>

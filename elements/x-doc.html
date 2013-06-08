@@ -1,0 +1,15 @@
+<element name="x-doc" attributes="article">
+	<template>
+		<h1 style="color: {{ article.nameColor }}">{{ article.name }}</h1>
+		<x-description article="{{ article }}"></x-description>
+	</template>
+	<script>
+	Polymer.register(this, {
+		ready: function() {
+			this.article = {
+				name: "An example article",
+			};
+		},
+	});
+	</script>
+</element>
