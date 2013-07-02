@@ -1,0 +1,41 @@
+<element name="map-geojson" attributes="tiles data width height">
+	<!-- template -->
+	<template>
+		<div id="map"></div>
+	</template>
+
+	<!-- styles -->
+	<link rel="stylesheet" href="../vendor/mapbox/mapbox.css">
+
+	<!-- scripts -->
+	<!-- TODO: MapBox script here? -->
+
+	<script>
+	Polymer.register(this, {
+		tiles: "hubbox.map-u557d78b",
+		width: 640,
+		height: 400,
+		ready: function() {
+			var style = this.$.map.style;
+			style.width = this.width + "px";
+			style.height = this.height + "px";
+
+			var map = L.mapbox.map(this.$.map, this.tiles);
+
+			var setPopup = function(event) {
+				var marker = event.layer;
+		        marker.bindPopup(marker.feature.properties.name);
+		    };
+
+		    var fitMarkers = function(event) {
+		    	map.fitBounds(event.target.getBounds());
+		    };
+
+			L.mapbox.markerLayer().addTo(map)
+				.on("layeradd", setPopup)
+				.on("ready", fitMarkers)
+				.loadURL(this.data); // has to be local or have CORS headers
+		}
+	});
+	</script>
+</element>

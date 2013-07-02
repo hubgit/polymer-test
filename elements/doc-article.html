@@ -1,7 +1,7 @@
-<element name="x-doc" attributes="article">
+<element name="doc-article">
 	<template>
 		<h1 style="color: {{ article.nameColor }}">{{ article.name }}</h1>
-		<x-description article="{{ article }}"></x-description>
+		<doc-description article="{{ article }}"></doc-description>
 	</template>
 	<script>
 	Polymer.register(this, {
