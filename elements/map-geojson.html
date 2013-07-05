@@ -1,4 +1,4 @@
-<script src="../vendor/mapbox/mapbox.js"></script><!-- TODO: move this inside the element? -->
+<script src="../vendor/mapbox/mapbox.js"></script>
 
 <element name="map-geojson" attributes="tiles data width height">
 	<!-- template -->
@@ -10,17 +10,15 @@
 	<link rel="stylesheet" href="../vendor/mapbox/mapbox.css">
 
 	<!-- scripts -->
-	<!-- TODO: MapBox script here? -->
-
 	<script>
 	Polymer.register(this, {
 		tiles: "hubbox.map-u557d78b",
-		width: 640,
-		height: 400,
+		width: "640px",
+		height: "400px",
 		ready: function() {
 			var style = this.$.map.style;
-			style.width = this.width + "px";
-			style.height = this.height + "px";
+			style.width = this.width;
+			style.height = this.height;
 
 			var map = L.mapbox.map(this.$.map, this.tiles);
 

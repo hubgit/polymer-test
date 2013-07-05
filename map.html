@@ -3,11 +3,10 @@
 <title>Polymer Map Test</title>
 
 <!-- components -->
-<link rel="import" href="elements/map-geojson.html">
+<link rel="import" href="elements/map-leaflet.html">
 
 <!-- elements -->
-<map-geojson data="data/bars.geojson" tiles="hubbox.map-u557d78b" width="640" height="400"></map-geojson>
+<map-leaflet width="800px" height="600px" latitude="51.5" longitude="-0.1" zoom="12" tiles="http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png"></map-leaflet>
 
 <!-- scripts -->
-<script src="vendor/mapbox/mapbox.js"></script><!-- TODO: move this inside the element? -->
 <script src="vendor/polymer/polymer.min.js"></script>

@@ -1,0 +1,36 @@
+<script src="../vendor/leaflet/leaflet.js"></script>
+
+<element name="map-leaflet" attributes="tiles width height latitude longitude zoom">
+	<!-- template -->
+	<template>
+		<div id="map"></div>
+	</template>
+
+	<!-- styles -->
+	<link rel="stylesheet" href="../vendor/leaflet/leaflet.css">
+
+	<!-- scripts -->
+	<script>
+	Polymer.register(this, {
+		tiles: "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png",
+		width: "640px",
+		height: "400px",
+		latitude: 51.5,
+		longitude: -0.1,
+		zoom: 14,
+		ready: function() {
+			var style = this.$.map.style;
+			style.width = this.width;
+			style.height = this.height;
+
+			var map = new L.Map(this.$.map, {
+				center: new L.LatLng(this.latitude, this.longitude),
+				zoom: this.zoom,
+				layers: [
+					L.tileLayer(this.tiles)
+				],
+			});
+		}
+	});
+	</script>
+</element>
